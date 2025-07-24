@@ -1,0 +1,535 @@
+<html lang="zh-CN"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雨小王的个人介绍</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- 配置Tailwind自定义颜色 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF7A00', // 橙色主色调
+            secondary: '#22C55E', // 绿色辅助色
+            primaryLight: '#FF9F4A', // 浅橙色
+            secondaryLight: '#6EE7B7', // 浅绿色
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .bg-gradient-custom {
+        background: linear-gradient(135deg, #FF7A00 0%, #FF9F4A 100%);
+      }
+      .hover-scale {
+        transition: transform 0.3s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.03);
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+  <!-- 导航栏 -->
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center bg-white/80 backdrop-blur-md shadow-sm">
+      <a href="#" class="text-2xl font-bold text-primary flex items-center">
+        <i class="fa fa-paper-plane-o mr-2"></i>
+        <span>雨小王</span>
+      </a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#about" class="text-gray-700 hover:text-primary transition-colors">关于我</a>
+        <a href="#education" class="text-gray-700 hover:text-primary transition-colors">教育经历</a>
+        <a href="#tags" class="text-gray-700 hover:text-primary transition-colors">我的标签</a>
+        <a href="#hobbies" class="text-gray-700 hover:text-primary transition-colors">爱好</a>
+        <a href="#memory" class="text-gray-700 hover:text-primary transition-colors">糗事</a>
+        <a href="#goal" class="text-gray-700 hover:text-primary transition-colors">未来目标</a>
+      </div>
+      <button class="md:hidden text-gray-700 focus:outline-none" id="menuToggle">
+        <i class="fa fa-bars text-xl"></i>
+      </button>
+    </div>
+    <!-- 移动端菜单 -->
+    <div class="md:hidden hidden bg-white shadow-lg absolute w-full" id="mobileMenu">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+        <a href="#about" class="text-gray-700 hover:text-primary transition-colors py-2">关于我</a>
+        <a href="#education" class="text-gray-700 hover:text-primary transition-colors py-2">教育经历</a>
+        <a href="#tags" class="text-gray-700 hover:text-primary transition-colors py-2">我的标签</a>
+        <a href="#hobbies" class="text-gray-700 hover:text-primary transition-colors py-2">爱好</a>
+        <a href="#memory" class="text-gray-700 hover:text-primary transition-colors py-2">糗事</a>
+        <a href="#goal" class="text-gray-700 hover:text-primary transition-colors py-2">未来目标</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄区域 -->
+  <header class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/90 -z-10"></div>
+    <div class="absolute inset-0 bg-[url('https://picsum.photos/id/1015/1600/900')] bg-cover bg-center opacity-10 -z-10"></div>
+    
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white leading-tight text-shadow">
+          你好，我是<span class="text-secondaryLight">雨小王</span>
+        </h1>
+        <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 mt-4 max-w-lg">教育体制的边缘人 • 摄影爱好者 • citywalk探索家 • 音乐迷</p>
+        <div class="mt-8 flex space-x-4">
+          <a href="#about" class="px-6 py-3 bg-white text-primary font-medium rounded-full hover:bg-gray-100 transition-colors shadow-lg hover-scale">
+            了解更多 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+          <a href="#goal" class="px-6 py-3 bg-transparent border-2 border-white text-white font-medium rounded-full hover:bg-white/10 transition-colors">
+            2026年目标
+          </a>
+        </div>
+      </div>
+      
+      <div class="md:w-1/2 flex justify-center">
+        <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl animate-float">
+          <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f5c96896954f492e9e9f3a85f0262205~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1753970277&amp;x-signature=%2BlBfFY9A3KRa59q%2BKNfMTkWd5uQ%3D" alt="雨小王的照片" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+        <path fill="#f9fafb" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+      </svg>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-16">
+    <!-- 关于我部分 -->
+    <section id="about" class="py-16 scroll-mt-20">
+      <div class="text-center mb-12">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-800">
+          <span class="inline-block border-b-4 border-primary pb-2">关于我</span>
+        </h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+          一个在教育体制边缘游走，热爱生活、探索世界的追梦人
+        </p>
+      </div>
+      
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 hover-scale">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/3 mb-8 md:mb-0">
+            <div class="relative">
+              <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/24976aab6bed47c6b80f47679f84da1a~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1753970554&amp;x-signature=MzpqQPjL1bwrPwpoUeo4rbkTX1s%3D" alt="雨小王的生活照" class="rounded-xl shadow-lg w-full h-auto object-cover">
+              <div class="absolute -bottom-4 -right-4 bg-primary text-white p-3 rounded-lg shadow-lg">
+                <i class="fa fa-camera-retro text-xl"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="md:w-2/3 md:pl-12">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">教育经历</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">待过库克亲自拜访过的最早一批用ipad教学小学；也待过高考工厂衡水中学，大起大落里，我把自己称为游走的教育体制边缘人。</p>
+            
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">人生偶像</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">我不追星，但我的偶像是Pippilotta Viktualia Rollgardina Pfefferminz Efraimstochter Langstrumpf，也就是长袜子皮皮。因为我的人生理想和她一样，力大无穷、钱包鼓鼓、精神自由。</p>
+            
+            <div class="mt-8 grid grid-cols-2 gap-4">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3">
+                    <i class="fa fa-graduation-cap"></i>
+                  </div>
+                  <span class="font-medium">教育背景</span>
+                </div>
+                <p class="text-gray-600 mt-2">游走着的教育体制边缘人</p>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mr-3">
+                    <i class="fa fa-heart"></i>
+                  </div>
+                  <span class="font-medium">人生态度</span>
+                </div>
+                <p class="text-gray-600 mt-2">力大无穷、钱包鼓鼓、精神自由</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 我的标签部分 -->
+    <section id="tags" class="py-16 scroll-mt-20">
+      <div class="text-center mb-12">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-800">
+          <span class="inline-block border-b-4 border-secondary pb-2">我的标签</span>
+        </h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+          这些标签勾勒出了我的多面人生
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-2xl shadow-xl p-8 hover-scale">
+          <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+            <i class="fa fa-star text-secondary mr-3"></i>
+            个人特质
+          </h3>
+          
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium">
+              <i class="fa fa-star-o mr-1"></i> 天秤座
+            </span>
+            <span class="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium">
+              <i class="fa fa-bug mr-1"></i> INFP/ENFP
+            </span>
+            <span class="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium">
+              <i class="fa fa-balance-scale mr-1"></i> 选择困难症
+            </span>
+            <span class="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium">
+              <i class="fa fa-map-o mr-1"></i> 路痴
+            </span>
+            <span class="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium">
+              <i class="fa fa-butterfly mr-1"></i> 快乐小蝴蝶
+            </span>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-xl p-8 hover-scale">
+          <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+            <i class="fa fa-music text-secondary mr-3"></i>
+            音乐喜好
+          </h3>
+          
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mr-4">
+                <i class="fa fa-music"></i>
+              </div>
+              <div>
+                <h4 class="font-medium">最爱歌手/乐队</h4>
+                <p class="text-gray-600">Lana Del Ray、Coldplay、陈绮贞</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mr-4">
+                <i class="fa fa-headphones"></i>
+              </div>
+              <div>
+                <h4 class="font-medium">音乐梦想</h4>
+                <p class="text-gray-600">和所爱之人一起听Coldplay演唱会</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 爱好部分 -->
+    <section id="hobbies" class="py-16 scroll-mt-20">
+      <div class="text-center mb-12">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-800">
+          <span class="inline-block border-b-4 border-primary pb-2">我的爱好</span>
+        </h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">生活是一场充满惊喜的旅程，我用这些方式感受世界</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-scale">
+          <div class="h-56 overflow-hidden">
+            <img src="https://picsum.photos/id/1059/600/400" alt="城市摄影" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">摄影</h3>
+            <p class="text-gray-600 mb-4">喜欢用相机记录城市的角落和人们的故事，扫街和人像摄影是我的最爱。</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <i class="fa fa-camera text-primary mr-2"></i>
+              扫街 / 人像 / 城市
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-scale">
+          <div class="h-56 overflow-hidden">
+            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/9054fbe4c6ba4b6cbab69ce3f844532f~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1753970670&amp;x-signature=QGJvTrHkJjDVMLyHGNtdTsogGkU%3D" alt="城市漫步" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Citywalk</h3>
+            <p class="text-gray-600 mb-4">
+              探索城市的每一个角落，发现隐藏在大街小巷中的故事和风景。城市是一本永远翻不完的书。
+            </p>
+            <div class="flex items-center text-sm text-gray-500">
+              <i class="fa fa-map-marker text-primary mr-2"></i>
+              城市探索 / 发现之旅
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-scale">
+          <div class="h-56 overflow-hidden">
+            <img src="https://picsum.photos/id/1076/600/400" alt="音乐" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">音乐</h3>
+            <p class="text-gray-600 mb-4">音乐是生活的配乐，不同的旋律能让不同场景中的我感受到自己是人生的主角。从独立民谣到流行摇滚，我都喜欢。</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <i class="fa fa-music text-primary mr-2"></i>
+              听歌 / 现场 / 音乐分享
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 糗事部分 -->
+    <section id="memory" class="py-16 scroll-mt-20">
+      <div class="text-center mb-12">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-800">
+          <span class="inline-block border-b-4 border-secondary pb-2">糗事记忆</span>
+        </h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+          每个人都有难忘的糗事，这是我的一个...
+        </p>
+      </div>
+      
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative overflow-hidden hover-scale">
+        <div class="absolute -top-20 -right-20 w-40 h-40 bg-secondary/10 rounded-full"></div>
+        <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-primary/10 rounded-full"></div>
+        
+        <div class="relative">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-white mr-4">
+              <i class="fa fa-lightbulb-o text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800">入围AdventureX的糗事</h3>
+          </div>
+          
+          <div class="bg-gray-50 p-6 rounded-xl relative">
+            <div class="absolute -top-4 left-6 text-4xl text-secondary/20">"</div>
+            <p class="text-gray-700 leading-relaxed relative z-10">
+              我入围了最近很火的AdventureX，但在找队友的过程中，发现自己啥也不会，只能索性放弃。这个经历虽然尴尬，但也让我更坚定了要学点东西的决心，所以我来到了这里，希望能提升自己。
+            </p>
+            <div class="absolute -bottom-4 right-6 text-4xl text-secondary/20">"</div>
+          </div>
+          
+          <div class="mt-8 flex items-center">
+            <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mr-3">
+              <i class="fa fa-check"></i>
+            </div>
+            <p class="text-gray-700">
+              <span class="font-medium">收获：</span> 认识到自己的不足，决心学习提升
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 未来目标部分 -->
+    <section id="goal" class="py-16 scroll-mt-20">
+      <div class="text-center mb-12">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-gray-800">
+          <span class="inline-block border-b-4 border-primary pb-2">2026年目标</span>
+        </h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+          写给未来的自己，希望一切如你所愿
+        </p>
+      </div>
+      
+      <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl shadow-xl p-8 md:p-12 relative overflow-hidden hover-scale">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/50 rounded-bl-full"></div>
+        
+        <div class="relative z-10">
+          <div class="flex items-center justify-center mb-8">
+            <div class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center">
+              <i class="fa fa-rocket text-3xl text-primary"></i>
+            </div>
+          </div>
+          
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4">
+                <i class="fa fa-envelope-o text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800">写给2026年的自己</h3>
+            </div>
+            
+            <div class="prose max-w-none">
+              <p class="text-gray-700 leading-relaxed">
+                "Hi，一年后的我，希望你终于明确了自己的发展道路，拿到了AI产品经理的实习offer！
+              </p>
+              <p class="text-gray-700 leading-relaxed mt-4">
+                希望你已经克服了选择困难症，能够坚定地走在自己选择的道路上。愿你的努力都有回报，愿你能在AI领域找到自己的价值。
+              </p>
+              <p class="text-gray-700 leading-relaxed mt-4">
+                别忘了继续你的摄影和citywalk，保持对生活的热爱和好奇心。最重要的是，保持内心的自由和快乐，这才是人生最大的财富。
+              </p>
+            </div>
+            
+            <div class="mt-8 text-right">
+              <p class="text-gray-600 italic">2025年的你</p>
+            </div>
+          </div>
+          
+          <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow-md hover-scale">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                <i class="fa fa-graduation-cap"></i>
+              </div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">职业发展</h4>
+              <p class="text-gray-600">
+                明确发展道路，获得AI产品经理实习机会，积累行业经验
+              </p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md hover-scale">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                <i class="fa fa-camera"></i>
+              </div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">个人爱好</h4>
+              <p class="text-gray-600">
+                继续摄影和citywalk，举办一次个人摄影展，记录城市的变迁
+              </p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md hover-scale">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                <i class="fa fa-music"></i>
+              </div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">人生梦想</h4>
+              <p class="text-gray-600">
+                和最爱和最爱我的人一起听Coldplay演唱会，创造美好回忆
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-2xl font-bold">雨小王</h3>
+          <p class="text-gray-400 mt-2">教育体制边缘人 • 摄影爱好者</p>
+        </div>
+        
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fa fa-instagram text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fa fa-twitter text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fa fa-weibo text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fa fa-wechat text-xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+        <p>© 2025 雨小王的个人介绍 | 设计与开发</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md');
+        navbar.classList.remove('bg-white/80');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md');
+        navbar.classList.add('bg-white/80');
+      }
+    });
+    
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      if (menuToggle.querySelector('i').classList.contains('fa-bars')) {
+        menuToggle.querySelector('i').classList.remove('fa-bars');
+        menuToggle.querySelector('i').classList.add('fa-times');
+      } else {
+        menuToggle.querySelector('i').classList.remove('fa-times');
+        menuToggle.querySelector('i').classList.add('fa-bars');
+      }
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // 关闭移动菜单
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          menuToggle.querySelector('i').classList.remove('fa-times');
+          menuToggle.querySelector('i').classList.add('fa-bars');
+        }
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // 图片懒加载
+    document.addEventListener("DOMContentLoaded", function() {
+      const lazyImages = [].slice.call(document.querySelectorAll("img"));
+      
+      if ("IntersectionObserver" in window) {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              let lazyImage = entry.target;
+              lazyImage.classList.add("fade-in");
+              lazyImageObserver.unobserve(lazyImage);
+            }
+          });
+        });
+        
+        lazyImages.forEach(function(lazyImage) {
+          lazyImageObserver.observe(lazyImage);
+        });
+      }
+    });
+  </script>
+
+
+    </body></html>
